@@ -1,0 +1,23 @@
+# Lint and Typecheck Workflow
+#
+# Runs formatting checks, Biome lint, and TypeScript typecheck.
+
+name: Run Linters
+
+on:
+  workflow_call:
+
+jobs:
+  run-linters:
+    name: Run Linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Setup Development Environment
+        uses: ./.github/actions/setup
+
+      - name: Run Static Checks
+        run: just check
