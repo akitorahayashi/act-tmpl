@@ -13,6 +13,17 @@ describe('resolveActionRequest', () => {
     mockedGetInput.mockReset()
   })
 
+  it('throws when required message is blank', () => {
+    mockedGetInput.mockImplementation((name: string) => {
+      if (name === 'message') {
+        return '   '
+      }
+      return ''
+    })
+
+    expect(() => resolveActionRequest()).toThrow("Input 'message' is required.")
+  })
+
   it('trims required and optional fields', () => {
     mockedGetInput.mockImplementation((name: string) => {
       switch (name) {

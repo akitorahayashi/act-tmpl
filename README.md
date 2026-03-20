@@ -12,7 +12,7 @@ The repository demonstrates a reusable delivery foundation:
 ## Quick Start
 
 ```yaml
-- uses: akitorahayshi/act-tmpl@v1
+- uses: akitorahayashi/act-tmpl@v1
   with:
     message: hello world
     prefix: greeting

@@ -1,7 +1,5 @@
 # Inputs
 
-## Inputs
-
 `act-tmpl` defines these inputs in `action.yml`:
 
 | Input | Required | Default | Meaning |

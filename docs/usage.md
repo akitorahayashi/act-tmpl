@@ -5,7 +5,7 @@
 ## Standard Workflow Usage
 
 ```yaml
-- uses: akitorahayshi/act-tmpl@v1
+- uses: akitorahayashi/act-tmpl@v1
   with:
     message: hello world
 ```
@@ -28,7 +28,7 @@ The output surface is:
 ## Rendering Example
 
 ```yaml
-- uses: akitorahayshi/act-tmpl@v1
+- uses: akitorahayashi/act-tmpl@v1
   with:
     message: world
     prefix: hello

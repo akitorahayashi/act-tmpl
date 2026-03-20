@@ -50,11 +50,11 @@ try {
     { cwd: repoRoot, stdio: 'inherit' },
   )
 
-  if (result.status !== 0) {
-    throw new Error(`ncc build failed with exit code ${result.status ?? 1}.`)
-  }
   if (result.error) {
     throw result.error
+  }
+  if (result.status !== 0) {
+    throw new Error(`ncc build failed with exit code ${result.status ?? 1}.`)
   }
 
   const committedFiles = listFiles(resolve(repoRoot, 'dist')).map((file) =>

@@ -7,7 +7,8 @@ export interface MessageTemplate {
 
 export function renderMessageTemplate(template: MessageTemplate): string {
   const fragments = [template.prefix, template.message, template.suffix].filter(
-    (fragment): fragment is string => typeof fragment === 'string',
+    (fragment): fragment is string =>
+      typeof fragment === 'string' && fragment.length > 0,
   )
 
   const rendered = fragments.join(' ')

@@ -25808,7 +25808,7 @@ function renderMessage(request) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.renderMessageTemplate = renderMessageTemplate;
 function renderMessageTemplate(template) {
-    const fragments = [template.prefix, template.message, template.suffix].filter((fragment) => typeof fragment === 'string');
+    const fragments = [template.prefix, template.message, template.suffix].filter((fragment) => typeof fragment === 'string' && fragment.length > 0);
     const rendered = fragments.join(' ');
     return template.uppercase ? rendered.toUpperCase() : rendered;
 }
@@ -25863,7 +25863,7 @@ async function run() {
     const request = (0, request_1.resolveActionRequest)();
     const renderedMessage = (0, render_message_1.renderMessage)(request);
     (0, outputs_1.emitRenderedMessageOutput)(renderedMessage);
-    core.info(`Rendered message: ${renderedMessage}`);
+    core.debug('Rendered message generated successfully.');
 }
 if (require.main === require.cache[eval('__filename')]) {
     run().catch((error) => {

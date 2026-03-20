@@ -8,7 +8,7 @@ async function run(): Promise<void> {
   const renderedMessage = renderMessage(request)
 
   emitRenderedMessageOutput(renderedMessage)
-  core.info(`Rendered message: ${renderedMessage}`)
+  core.debug('Rendered message generated successfully.')
 }
 
 if (require.main === module) {
