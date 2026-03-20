@@ -27,7 +27,7 @@ Inputs:
 - `message` (required)
 - `prefix` (optional)
 - `suffix` (optional)
-- `uppercase` (optional)
+- `uppercase` (optional, default: false)
 
 Outputs:
 
