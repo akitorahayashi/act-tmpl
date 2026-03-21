@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: Release tag in vX.Y.Z format
+        description: Release version in X.Y.Z format
         required: true
         type: string
 
@@ -27,16 +27,17 @@ jobs:
       - id: version
         name: Resolve release tags
         env:
-          RELEASE_TAG: ${{ inputs.version }}
+          RELEASE_VERSION: ${{ inputs.version }}
         run: |
           if [[ "${GITHUB_REF_NAME}" != "main" ]]; then
             echo "Release workflow must run from main, got '${GITHUB_REF_NAME}'." >&2
             exit 1
           fi
-          if [[ ! "${RELEASE_TAG}" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
-            echo "Expected release tag in vX.Y.Z format, got '${RELEASE_TAG}'." >&2
+          if [[ ! "${RELEASE_VERSION}" =~ ^([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            echo "Expected release version in X.Y.Z format, got '${RELEASE_VERSION}'." >&2
             exit 1
           fi
+          RELEASE_TAG="v${RELEASE_VERSION}"
           echo "release_tag=${RELEASE_TAG}" >> "${GITHUB_OUTPUT}"
           echo "major_tag=v${BASH_REMATCH[1]}" >> "${GITHUB_OUTPUT}"
 
@@ -64,7 +65,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build Action Distribution
-        run: just package
+        run: npm run package
 
       - name: Commit Distribution
         id: dist

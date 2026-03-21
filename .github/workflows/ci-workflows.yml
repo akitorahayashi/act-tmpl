@@ -2,11 +2,11 @@ name: CI Workflows
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "main" ]
     paths-ignore:
       - '**.md'
   pull_request:
-    branches: [ "dev", "main" ]
+    branches: [ "main" ]
     paths-ignore:
       - '**.md'
   workflow_dispatch:

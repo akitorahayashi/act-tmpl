@@ -27,10 +27,6 @@ check:
 test:
     npm run test
 
-# Build release-managed GitHub Action distribution
-package:
-    npm run package
-
 # Remove repository-local generated artifacts
 clean:
     rm -rf .tmp coverage node_modules
