@@ -4,7 +4,7 @@
 
 The repository demonstrates a reusable delivery foundation:
 
-- committed `dist/` packaging and verification
+- release-managed `dist/` packaging on `main`
 - split reusable workflows under `.github/workflows/`
 - `just` as the local task surface
 - runtime boundaries organized as `index -> action -> app -> domain`

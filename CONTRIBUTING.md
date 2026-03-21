@@ -2,7 +2,7 @@
 
 ## Scope
 
-`act-tmpl` is a single-action template repository. The active runtime surface is the GitHub Action contract in `action.yml`, the TypeScript boundaries under `src/`, and the committed package output in `dist/`.
+`act-tmpl` is a single-action template repository. The active runtime surface is the GitHub Action contract in `action.yml`, the TypeScript boundaries under `src/`, and the release-managed package output in `dist/`.
 
 ## Local Verification
 
@@ -10,11 +10,10 @@
 
 The repository-owned verification and maintenance recipes are:
 
-- `just fix`: runs `npm run format`, `npm run lint:fix`, and `npm run package`
-- `just check`: runs `npm run format:check`, `npm run lint`, `npm run typecheck`, and `npm run verify:dist`
+- `just fix`: runs `npm run format` and `npm run lint:fix`
+- `just check`: runs `npm run format:check`, `npm run lint`, and `npm run typecheck`
 - `just test`: runs `npm test`
 - `just package`: runs `npm run package`
-- `just verify-dist`: runs `npm run verify:dist`
 - `just clean`: removes repository-local generated artifacts under `.tmp`, `coverage`, and `node_modules`
 
 `package.json` retains the atomic npm scripts behind these recipes:
@@ -26,18 +25,15 @@ The repository-owned verification and maintenance recipes are:
 - `npm test`
 - `npm run typecheck`
 - `npm run package`
-- `npm run verify:dist`
 
 ## Distribution Boundary
 
-`dist/` is committed because GitHub Actions executes repository contents directly from the tagged revision. Source changes under `src/` are accompanied by regenerated `dist/` output before release tags move.
-
-`scripts/verify-dist.mjs` compares committed `dist/` files against fresh `ncc` output in the repository-local `.tmp/` directory. Distribution drift is treated as a repository defect.
+`dist/` remains the JavaScript runtime loaded by `action.yml`. Development integrates on `dev`. Release promotion flows from `dev` to `main`, and the release workflow regenerates `dist/` on `main` immediately before it creates release tags.
 
 ## Release Model
 
 The repository versions one action. Consumer-facing tags follow `vX.Y.Z`, and the moving major tag for workflows is `v1`.
-When a semver tag is pushed, the release workflow publishes the matching GitHub Release and then moves the corresponding major tag to the released commit.
+The release workflow runs from `main`, validates the requested semver tag, regenerates `dist/`, commits the release distribution when needed, and then publishes the GitHub Release while moving the corresponding major tag.
 
 ## Documentation
 

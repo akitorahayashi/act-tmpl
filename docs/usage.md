@@ -46,10 +46,10 @@ Repository-local verification commands are:
 - `just check`
 - `just test`
 - `just package`
-- `just verify-dist`
 
-`just fix` refreshes committed `dist/` after source-side fixes.
-`just check` includes committed `dist/` verification.
+`just fix` applies formatter and safe lint updates.
+`just check` covers formatter, lint, and typecheck validation on source changes.
+`just package` remains the release packaging entrypoint on `main`.
 
 Targeted npm commands remain available behind the `just` recipes:
 
@@ -60,4 +60,3 @@ Targeted npm commands remain available behind the `just` recipes:
 - `npm test`
 - `npm run typecheck`
 - `npm run package`
-- `npm run verify:dist`
