@@ -25,8 +25,8 @@ The runtime boundaries are:
 Runtime dependencies follow this direction:
 
 ```text
-index -> action -> app -> domain
-action -> domain
+index  -> action, app
+app    -> action (type only), domain
 domain -> none
 ```
 
