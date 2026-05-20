@@ -1,10 +1,10 @@
-import { readOptionalInput, readRequiredInput } from './inputs'
+import { readOptionalInput, readRequiredInput } from './inputs';
 
 export interface ActionRequest {
-  message: string
-  prefix?: string
-  suffix?: string
-  uppercase: boolean
+  message: string;
+  prefix?: string;
+  suffix?: string;
+  uppercase: boolean;
 }
 
 export function resolveActionRequest(): ActionRequest {
@@ -13,12 +13,12 @@ export function resolveActionRequest(): ActionRequest {
     prefix: readOptionalInput('prefix'),
     suffix: readOptionalInput('suffix'),
     uppercase: parseBooleanFlag(readOptionalInput('uppercase')),
-  }
+  };
 }
 
 function parseBooleanFlag(value: string | undefined): boolean {
   if (!value) {
-    return false
+    return false;
   }
 
   switch (value.toLowerCase()) {
@@ -26,8 +26,8 @@ function parseBooleanFlag(value: string | undefined): boolean {
     case 'true':
     case 'yes':
     case 'on':
-      return true
+      return true;
     default:
-      return false
+      return false;
   }
 }

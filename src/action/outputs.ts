@@ -1,5 +1,5 @@
-import * as core from '@actions/core'
+import * as core from '@actions/core';
 
 export function emitRenderedMessageOutput(renderedMessage: string): void {
-  core.setOutput('rendered-message', renderedMessage)
+  core.setOutput('rendered-message', renderedMessage);
 }

@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
-import { renderMessage } from '../../src/app/render-message'
+import { describe, expect, it } from 'vitest';
+import { renderMessage } from '../../src/app/render-message';
 
 describe('renderMessage', () => {
   it('delegates request rendering to domain template logic', () => {
@@ -10,8 +10,8 @@ describe('renderMessage', () => {
         suffix: 'again',
         uppercase: false,
       }),
-    ).toBe('hello world again')
-  })
+    ).toBe('hello world again');
+  });
 
   it('supports uppercase mode from the request', () => {
     expect(
@@ -21,6 +21,6 @@ describe('renderMessage', () => {
         suffix: undefined,
         uppercase: true,
       }),
-    ).toBe('HELLO WORLD')
-  })
-})
+    ).toBe('HELLO WORLD');
+  });
+});
