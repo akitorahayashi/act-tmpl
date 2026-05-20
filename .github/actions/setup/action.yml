@@ -1,20 +1,27 @@
 name: Setup Node Environment
-description: Install Node.js, setup just, and install npm dependencies
+description: Install Node.js, setup just, and install pnpm dependencies
 
 inputs:
   node-version-file:
     description: Node.js version file path
     required: false
     default: .nvmrc
+  args:
+    description: Arguments passed to `just setup`
+    required: false
+    default: '--frozen-lockfile'
 
 runs:
   using: composite
   steps:
+    - uses: pnpm/action-setup@v6
+      with:
+        cache: true
+
     - name: Setup Node.js
       uses: actions/setup-node@v5
       with:
         node-version-file: ${{ inputs.node-version-file }}
-        cache: npm
 
     - name: Setup just
       uses: extractions/setup-just@v2
@@ -22,5 +29,5 @@ runs:
         just-version: 1.46.0
 
     - name: Run just setup
-      run: just setup
+      run: just setup ${{ inputs.args }}
       shell: bash
