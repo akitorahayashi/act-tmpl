@@ -16,12 +16,13 @@ runs:
   steps:
     - uses: pnpm/action-setup@v6
       with:
-        cache: true
+        cache: false
 
     - name: Setup Node.js
       uses: actions/setup-node@v5
       with:
         node-version-file: ${{ inputs.node-version-file }}
+        cache: pnpm
 
     - name: Setup just
       uses: extractions/setup-just@v2
