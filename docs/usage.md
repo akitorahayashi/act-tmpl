@@ -42,19 +42,16 @@ The emitted output in this example is `HELLO WORLD AGAIN`.
 
 Repository-local verification commands are:
 
-- `just fix`
-- `just check`
-- `just test`
+- `pnpm run fix`
+- `pnpm run check`
+- `pnpm run test`
 
-`just fix` applies formatter and safe lint updates.
-`just check` covers formatter, lint, and typecheck validation on source changes.
+`pnpm run fix` applies Biome formatter and safe lint updates.
+`pnpm run check` covers Biome checks and typecheck validation on source changes.
 
-Targeted pnpm commands remain available behind the `just` recipes:
+Other pnpm scripts remain available:
 
-- `pnpm format`
-- `pnpm format:check`
-- `pnpm lint`
-- `pnpm lint:fix`
-- `pnpm test`
-- `pnpm typecheck`
-- `pnpm package`
+- `pnpm run test:coverage`
+- `pnpm run typecheck`
+- `pnpm run package`
+- `pnpm run clean`

@@ -50,7 +50,7 @@ The repository demonstrates a reusable TypeScript GitHub Action baseline:
 - minimal `src/index.ts` bootstrap
 - boundary-owned runtime directories (`src/action`, `src/app`, `src/domain`)
 - boundary-owned tests (`tests/action`, `tests/app`, `tests/domain`)
-- standard validation and release packaging (`just`, `dist/`)
+- standard validation and release packaging (`pnpm`, `dist/`)
 
 ## Failure Invariants
 
