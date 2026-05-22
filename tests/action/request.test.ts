@@ -1,6 +1,6 @@
+import * as core from '@actions/core';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { resolveActionRequest } from '../../src/action/request';
-import * as core from '@actions/core';
 
 vi.mock('@actions/core', () => ({
   getInput: vi.fn(),

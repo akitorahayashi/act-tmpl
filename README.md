@@ -6,7 +6,7 @@ The repository demonstrates a reusable delivery foundation:
 
 - release-managed `dist/` packaging on `main`
 - split reusable workflows under `.github/workflows/`
-- `just` as the local task surface
+- `pnpm` scripts as the local task surface
 - runtime boundaries organized as `index -> action -> app -> domain`
 
 ## Quick Start
