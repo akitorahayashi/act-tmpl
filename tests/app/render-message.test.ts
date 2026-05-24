@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { renderMessage } from '../../src/app/render-message';
 
 describe('renderMessage', () => {
-  it('delegates request rendering to domain template logic', () => {
+  it('delegates request rendering to message boundary logic', () => {
     expect(
       renderMessage({
         message: 'world',

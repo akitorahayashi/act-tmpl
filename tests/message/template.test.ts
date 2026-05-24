@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { renderMessageTemplate } from '../../src/domain/message-template';
+import { renderMessageTemplate } from '../../src/message/template';
 
 describe('renderMessageTemplate', () => {
   it('renders the base message when optional fields are missing', () => {

@@ -7,7 +7,7 @@ The repository demonstrates a reusable delivery foundation:
 - release-managed `dist/` packaging on `main`
 - split reusable workflows under `.github/workflows/`
 - `pnpm` scripts as the local task surface
-- runtime boundaries organized as `index -> action -> app -> domain`
+- runtime boundaries organized as `index -> action -> app -> message`
 
 ## Quick Start
 
@@ -37,12 +37,12 @@ Outputs:
 
 1. Read inputs from the GitHub Actions boundary.
 2. Normalize inputs into an action request.
-3. Render a final string in the app and domain boundaries.
+3. Render a final string in the app and message boundaries.
 4. Emit `rendered-message`.
 5. Log the rendered value.
 
 ## Documentation
 
 - [Usage](docs/usage.md)
-- [Architecture Boundary](docs/architecture/boundary.md)
+- [Architecture Boundary](docs/architecture.md)
 - [Action Inputs](docs/configuration/inputs.md)

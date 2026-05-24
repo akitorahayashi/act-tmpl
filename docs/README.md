@@ -10,7 +10,7 @@ The action usage describes message rendering inputs and `rendered-message` outpu
 
 ## Architecture
 
-- [Architecture Boundary](architecture/boundary.md): runtime boundaries, dependency direction, execution flow, and failure invariants
+- [Architecture Boundary](architecture.md): runtime boundaries, dependency direction, execution flow, and failure invariants
 
 ## Configuration
 

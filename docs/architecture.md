@@ -7,9 +7,9 @@
 The repository surfaces are:
 
 - `action.yml`: public action contract
-- `src/`: TypeScript runtime organized by action, app, and domain boundaries
+- `src/`: TypeScript runtime organized by action, app, and message boundaries
 - `dist/`: release-managed package output used by GitHub Actions at tag resolution time
-- `tests/`: repository-owned boundary tests under `tests/action`, `tests/app`, and `tests/domain`
+- `tests/`: repository-owned boundary tests under `tests/action`, `tests/app`, and `tests/message`
 
 ## Runtime Boundaries
 
@@ -18,7 +18,7 @@ The runtime boundaries are:
 - `src/index.ts`: bootstrap and top-level orchestration only
 - `src/action/`: action boundary input reading, output emission, and request normalization
 - `src/app/`: use-case orchestration for message rendering
-- `src/domain/`: pure message template rendering
+- `src/message/`: pure message template rendering
 
 ## Dependency Direction
 
@@ -26,11 +26,11 @@ Runtime dependencies follow this direction:
 
 ```text
 index  -> action, app
-app    -> action (type only), domain
-domain -> none
+app    -> action (type only), message
+message -> none
 ```
 
-`domain` remains pure and does not depend on `action` or `app`.
+`message` remains pure and does not depend on `action` or `app`.
 
 ## Runtime Execution Flow
 
@@ -48,8 +48,8 @@ The repository demonstrates a reusable TypeScript GitHub Action baseline:
 
 - `action.yml`
 - minimal `src/index.ts` bootstrap
-- boundary-owned runtime directories (`src/action`, `src/app`, `src/domain`)
-- boundary-owned tests (`tests/action`, `tests/app`, `tests/domain`)
+- boundary-owned runtime directories (`src/action`, `src/app`, `src/message`)
+- boundary-owned tests (`tests/action`, `tests/app`, `tests/message`)
 - standard validation and release packaging (`pnpm`, `dist/`)
 
 ## Failure Invariants
