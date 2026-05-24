@@ -10,8 +10,8 @@ The authored implementation lives under `src/`.
 `src/index.ts` bootstraps the action runtime.
 `src/action/` owns input reading, output emission, and request normalization.
 `src/app/` owns use-case orchestration.
-`src/domain/` owns pure message rendering logic.
-`tests/action/`, `tests/app/`, and `tests/domain/` verify boundary behavior.
+`src/message/` owns pure message rendering logic.
+`tests/action/`, `tests/app/`, and `tests/message/` verify boundary behavior.
 `docs/` contains usage, configuration, and architecture documentation.
 `.github/workflows/` contains CI and release automation.
 
